@@ -53,33 +53,33 @@ col1, col2 = st.columns(2)
 
 ## Chart 1 - Warehouse Credits Over Time 
 col1.markdown('## Warehouse Credits Over Time')
-df_whCr=snowpark_df('select MNTH,uniform(100, 1000, random()) as SUM_CR from WarehouseCreditsOverTime order by 1') 
+df_whCr=snowpark_df('select MNTH,  SUM_CR from WarehouseCreditsOverTime order by 1') 
 col1.bar_chart(df_whCr,x="MNTH",y="SUM_CR")
 
 
 
 ## Chart 2 - Credits by Warehouse
-df_CrbyWH=snowpark_df('select WAREHOUSE_NAME,uniform(100, 1000, random())  as CREDITS_USED from WarehouseCreditUsage')
+df_CrbyWH=snowpark_df('select WAREHOUSE_NAME, CREDITS_USED from WarehouseCreditUsage')
 col2.markdown('## Credits by Warehouse')
 col2.bar_chart(df_CrbyWH, x="WAREHOUSE_NAME", y="CREDITS_USED")
 
 
 ##Chart 3 - Monthly Credits by Type'
 col1.markdown('## Monthly Credits by Type')
-df_MnCrUsage=snowpark_df('select MONTH,uniform(100, 1000, random()) as WAREHOUSE_CREDITS,uniform(100, 1000, random()) as PIPE_CREDITS,uniform(100, 1000, random()) as MVIEW_CREDITS,uniform(100, 1000, random()) as CLUSTERING_CREDITS,uniform(100, 1000, random()) as READER_CREDITS from MonthlyCreditsbyType')
+df_MnCrUsage=snowpark_df('select MONTH,  WAREHOUSE_CREDITS,  PIPE_CREDITS,  MVIEW_CREDITS,  CLUSTERING_CREDITS,  READER_CREDITS from MonthlyCreditsbyType')
 col1.line_chart(df_MnCrUsage,x="MONTH",y=["WAREHOUSE_CREDITS","PIPE_CREDITS","MVIEW_CREDITS","CLUSTERING_CREDITS","READER_CREDITS"])
 
 col2.write(df_MnCrUsage)
 
 
 ## Chart 4 - Credits by hour of the day
-df_CrbyWH=snowpark_df('select HOUR,uniform(100, 1000, random()) as CR from HourlyCreditUsage')
+df_CrbyWH=snowpark_df('select HOUR,  CR from HourlyCreditUsage')
 col2.markdown('## Credits by hour of the day')
 col2.area_chart(df_CrbyWH, x="HOUR", y="CR")
 
 
 ## Chart 5 - Data Storage Cost by Month
-df_storage_cost=snowpark_df('select SORT_MONTH,uniform(100, 500, random()) as STORAGE,uniform(50, 200, random()) as  STAGE,uniform(100, 200, random()) as FAILSAFE from MonthlyStorageUsage')
+df_storage_cost=snowpark_df('select SORT_MONTH, STORAGE,  STAGE, FAILSAFE from MonthlyStorageUsage')
 col1.markdown('## Data Storage Cost by Month')
 col1.bar_chart(df_storage_cost,x="SORT_MONTH",y=['STORAGE', 'STAGE', 'FAILSAFE'])
 
