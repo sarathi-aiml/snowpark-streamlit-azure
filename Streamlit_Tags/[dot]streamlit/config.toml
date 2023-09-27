@@ -1,0 +1,13 @@
+[theme]
+primaryColor="#29b5e8"
+backgroundColor="#F7F7F7"
+secondaryBackgroundColor="#29b5e8"
+textColor="#000"
+font="sans serif"
+
+[global]
+disableWidgetStateDuplicationWarning = true
+
+
+
+

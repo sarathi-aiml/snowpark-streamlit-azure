@@ -1,0 +1,22 @@
+[[pages]]
+path = "Apply_Tag.py"
+name = "Apply Tag"
+icon = "📂"
+
+
+[[pages]]
+path = "pages/Create_Rule.py"
+name = "Create Rule"
+icon = "📂"
+
+
+[[pages]]
+path = "pages/Manage_Tags.py"
+name = "Manage Tags"
+icon = "📂"
+
+
+[[pages]]
+path = "pages/Schedule_Task.py"
+name = "Schedule Task"
+icon = "📂"
